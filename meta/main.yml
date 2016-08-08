@@ -10,7 +10,7 @@ galaxy_info:
     - all
   categories:
     - irc
-    - nirc
+    - shout
     - web
 dependencies:
   - { role: geerlingguy.daemonize }
