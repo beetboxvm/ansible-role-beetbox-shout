@@ -1,0 +1,17 @@
+---
+
+- name: Install Shout
+  npm:
+    name: shout
+    global: yes
+
+- name: Copy Shout init script into place.
+  template:
+    src: shout.init.j2
+    dest: /etc/init.d/shout
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Ensure Shout is enabled and will start on boot.
+  service: name=shout state=started enabled=yes

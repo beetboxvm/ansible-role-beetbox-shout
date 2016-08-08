@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: beetboxvm
+  description: Shout; The self-hosted web IRC client.
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+    - irc
+    - nirc
+    - web
+dependencies:
+  - { role: geerlingguy.daemonize }
+  - { role: geerlingguy.nodejs }
