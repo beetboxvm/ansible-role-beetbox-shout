@@ -1,5 +1,10 @@
 ---
 
+- name: Install Forever
+  npm:
+    name: forever
+    global: yes
+
 - name: Install Shout
   npm:
     name: shout

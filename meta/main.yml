@@ -13,5 +13,4 @@ galaxy_info:
     - shout
     - web
 dependencies:
-  - { role: geerlingguy.daemonize }
-  - { role: geerlingguy.nodejs }
+  - role: geerlingguy.nodejs
