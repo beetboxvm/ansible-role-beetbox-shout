@@ -10,6 +10,16 @@
     name: shout
     global: yes
 
+- name: Create shout directory.
+  file:
+    path: "{{ shout_home }}"
+    state: directory
+
+- name: Copy Shout config into place.
+  template:
+    src: config.js.j2
+    dest: "{{ shout_home }}/config.js"
+
 - name: Copy Shout init script into place.
   template:
     src: shout.init.j2
