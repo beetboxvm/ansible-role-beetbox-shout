@@ -23,7 +23,7 @@ FOREVER_BIN="/usr/bin/forever"
 case "$1" in
   start)
     echo "Starting Shout."
-    $FOREVER_BIN --pidFile $PID --uid $USER $BIN start --port $PORT
+    $FOREVER_BIN start --pidFile $PID --uid $USER $BIN start --port $PORT
     ;;
   stop)
     if [ -f $PID ]; then
