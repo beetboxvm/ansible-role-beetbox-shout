@@ -14,16 +14,15 @@
 ### END INIT INFO
 
 PID=/var/run/shout.pid
-USER=nobody
 BIN=/usr/bin/shout
-PORT="{{ shout_port }}"
-FOREVER_BIN="/usr/bin/forever"
+SHOUT_HOME={{ shout_home }}
+FOREVER_BIN=/usr/bin/forever
 
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
     echo "Starting Shout."
-    $FOREVER_BIN start --pidFile $PID --uid $USER $BIN start --port $PORT
+    $FOREVER_BIN start -a --pidFile $PID $BIN start --home $SHOUT_HOME
     ;;
   stop)
     if [ -f $PID ]; then
@@ -40,7 +39,7 @@ case "$1" in
       kill -TERM $(cat $PID);
       rm -f $PID;
     fi
-    $FOREVER_BIN --pidFile $PID --uid $USER $BIN start --port $PORT
+    $FOREVER_BIN start -a --pidFile $PID $BIN start --home $SHOUT_HOME
     ;;
   status)
     if [ -f $PID ]; then

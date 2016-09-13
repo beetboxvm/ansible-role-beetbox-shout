@@ -29,4 +29,7 @@
     mode: 0755
 
 - name: Ensure Shout is enabled and will start on boot.
-  service: name=shout state=started enabled=yes
+  service:
+    name: shout
+    state: restarted
+    enabled: yes
