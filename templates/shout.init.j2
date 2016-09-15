@@ -27,8 +27,7 @@ case "$1" in
   stop)
     if [ -f $PID ]; then
       echo "Stopping Shout.";
-      kill -TERM $(cat $PID);
-      rm -f $PID;
+      $FOREVER_BIN stop $(cat $PID);
     else
       echo "shout is not running.";
     fi
@@ -36,8 +35,7 @@ case "$1" in
   restart)
     echo "Restarting Shout."
     if [ -f $PID ]; then
-      kill -TERM $(cat $PID);
-      rm -f $PID;
+      $FOREVER_BIN stop $(cat $PID);
     fi
     $FOREVER_BIN start -a --pidFile $PID $BIN start --home $SHOUT_HOME
     ;;
